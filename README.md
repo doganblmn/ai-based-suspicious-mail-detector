@@ -102,3 +102,4 @@ Failure to act now may block your account permanently.
 The technical report is available in the `docs` folder.
 
 [Technical Report](docs/Technical_Report.pdf)
+[Live Demo] (https://doganblmn.github.io/ai-based-suspicious-mail-detector/)
