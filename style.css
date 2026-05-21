@@ -1,0 +1,281 @@
+:root {
+  --bg: #0f172a;
+  --panel: #162033;
+  --panel-soft: #1e293b;
+  --text: #f8fafc;
+  --muted: #a9b4c5;
+  --border: #334155;
+  --safe: #22c55e;
+  --medium: #f59e0b;
+  --high: #ef4444;
+  --accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0;
+}
+
+.hero {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 720px;
+  margin: 0;
+}
+
+.panel,
+.result-section,
+.loading {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.85fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.form-card,
+.info-card,
+.result-card {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+h2,
+h3 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  color: #e2e8f0;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: #07111f;
+}
+
+.secondary-btn {
+  background: #334155;
+  color: var(--text);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.error-message {
+  color: var(--high);
+  min-height: 22px;
+  font-weight: 700;
+}
+
+.info-card p,
+.result-card p,
+.result-card li {
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.mini-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.mini-list span {
+  background: #0b1220;
+  border: 1px solid var(--border);
+  color: #dbeafe;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.loading {
+  margin-top: 20px;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #334155;
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.result-section {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.risk-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-radius: 14px;
+  padding: 20px;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+}
+
+.risk-banner.safe { border-color: var(--safe); }
+.risk-banner.medium { border-color: var(--medium); }
+.risk-banner.high { border-color: var(--high); }
+
+.result-label {
+  margin: 0 0 5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+#riskLevel {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.score-box strong {
+  font-size: 1.5rem;
+}
+
+.progress-wrap {
+  width: 100%;
+  background: #0b1220;
+  border-radius: 999px;
+  height: 12px;
+  margin: 16px 0 20px;
+  overflow: hidden;
+}
+
+.score-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+  background: var(--accent);
+}
+
+.score-bar.safe { background: var(--safe); }
+.score-bar.medium { background: var(--medium); }
+.score-bar.high { background: var(--high); }
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.result-card.wide {
+  grid-column: 1 / -1;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .grid-two,
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

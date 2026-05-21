@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Based Suspicious Mail Detector Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      
+      <h1>AI-Based Suspicious Mail Detector</h1>
+      <p class="subtitle">
+        Analyze sender details and email content to detect suspicious mail patterns.
+      </p>
+    </section>
+
+    <section class="panel grid-two">
+      <form id="emailForm" class="form-card">
+        <h2>Email Details</h2>
+
+        <label for="senderName">Sender Name</label>
+        <input id="senderName" type="text" placeholder="Example: PayPal Support" />
+
+        <label for="senderEmail">Sender Email Address</label>
+        <input id="senderEmail" type="email" placeholder="Example: paypal.security@gmail.com" />
+
+        <label for="emailBody">Email Body</label>
+        <textarea id="emailBody" rows="12" placeholder="Paste the email body here..."></textarea>
+
+        <div class="actions">
+          <button type="submit" class="primary-btn">Analyze Email</button>
+          <button type="button" id="clearBtn" class="secondary-btn">Clear</button>
+        </div>
+
+        <p id="errorMessage" class="error-message" aria-live="polite"></p>
+      </form>
+
+      <section class="info-card">
+        <h2>How this demo works</h2>
+        <p>
+          This demo simulates an AI-based suspicious mail detector. It analyzes sender identity,
+          email domain consistency, suspicious links, and social engineering patterns in the mail body.
+        </p>
+        <p>
+          In a real-world version, this local analysis engine can be replaced with a pre-trained
+          AI model or an LLM API.
+        </p>
+        <div class="mini-list">
+          <span>Sender Analysis</span>
+          <span>Content Analysis</span>
+          <span>Link Analysis</span>
+          <span>Risk Report</span>
+        </div>
+      </section>
+    </section>
+
+    <section id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>AI is analyzing the email...</p>
+    </section>
+
+    <section id="resultSection" class="result-section hidden" aria-live="polite">
+      <div id="riskBanner" class="risk-banner">
+        <div>
+          <p class="result-label">Risk Level</p>
+          <h2 id="riskLevel">-</h2>
+        </div>
+        <div class="score-box">
+          <p class="result-label">Risk Score</p>
+          <strong><span id="riskScore">0</span>/100</strong>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div id="scoreBar" class="score-bar"></div>
+      </div>
+
+      <div class="result-grid">
+        <article class="result-card wide">
+          <h3>AI Verdict</h3>
+          <p id="aiVerdict"></p>
+        </article>
+
+        <article class="result-card">
+          <h3>Sender Analysis</h3>
+          <ul id="senderAnalysis"></ul>
+        </article>
+
+        <article class="result-card">
+          <h3>Content Analysis</h3>
+          <ul id="contentAnalysis"></ul>
+        </article>
+
+        <article class="result-card">
+          <h3>Suspicious Phrases</h3>
+          <ul id="suspiciousPhrases"></ul>
+        </article>
+
+        <article class="result-card">
+          <h3>Suspicious Links</h3>
+          <ul id="suspiciousLinks"></ul>
+        </article>
+
+        <article class="result-card wide">
+          <h3>Security Feedback</h3>
+          <p id="feedback"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
